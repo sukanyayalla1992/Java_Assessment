@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Students</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+        <span class="navbar-brand mb-0 h1"></span>
+    </nav><br/><br/>
+    <a th:href="@{/import}">Import</a><br/>
+    <table>
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Year</th>
+                <th>Campus</th>
+                <th>Grade</th>
+                <th>Entry Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="student : ${students}">
+                <td th:text="${student.studentId}">Student ID</td>
+                <td th:text="${student.name}">Name</td>
+                <td th:text="${student.schoolYear}">Year</td>
+                <td th:text="${student.campus}">Campus</td>
+                <td th:text="${student.gradeLevel}">Grade</td>
+                <td th:text="${student.entryDate}">Entry Date</td>
+            </tr>
+        </tbody>
+    </table><br/>
+
+    <nav class="navbar navbar-dark bg-primary">
+        <span class="navbar-brand mb-0 h1"></span>
+    </nav>
+</body>
+</html>
